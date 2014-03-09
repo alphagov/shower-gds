@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=680, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>GDS theme for Shower.js</title>
+    <link rel="stylesheet" href="styles/gds.css">
+  </head>
+
+  <body class="list">
+    <header class="caption">
+      <h1><abbr title="Government Digital Service">GDS</abbr> theme for Shower.js</h1>
+      <p>
+        By
+        <a href="https://github.com/alexmuller">Alex Muller</a>,
+        based on
+        <a href="https://github.com/shower/bright">Bright</a>
+      </p>
+    </header>
+
+    <section class="slide intro"><div>
+      <p>Your name (@your_twitter_username)</p>
+      <p>Your job</p>
+      <p>Government Digital Service</p>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Text</h2>
+      <p>Obviously presentations have words in them.</p>
+      <p>
+        You can include links in your presentation, in case you
+        make a download available afterwards.
+      </p>
+      <p>
+        <a href="https://gds.blog.gov.uk">The GDS blog</a> uses <a href="https://wordpress.org/">WordPress</a>.
+      </p>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Quotes</h2>
+      <figure>
+        <blockquote>
+          <p>CESG tech dir: "If anyone in UK government says CESG has banned open source send their name to me and I'll have them killed" #opensource13</p>
+        </blockquote>
+        <figcaption><a href="https://twitter.com/NickJHeath/status/324838401041899520">Nick Heath</a></figcaption>
+      </figure>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Code inside normal text</h2>
+      <p>You can use the <code>&lt;code&gt;</code> element to mark up code inside normal text.</p>
+      <p>For longer blocks of code, see the next slide.</p>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Code blocks</h2>
+      <pre><code>class <mark>Checkout</mark>
+  <mark class="important">def</mark> total
+    <mark class="comment"># Return the total</mark>
+    1 + 2 + 3
+  end
+end
+checkout = Checkout.new
+checkout.total <mark class="comment"># => 6</mark>
+
+      </code></pre>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Code blocks with line numbers</h2>
+      <pre>
+        <code>class <mark>Checkout</mark></code>
+        <code>  <mark class="important">def</mark> total</code>
+        <code>    <mark class="comment"># Return the total</mark></code>
+        <code>    1 + 2 + 3</code>
+        <code>  end</code>
+        <code>end</code>
+        <code>checkout = Checkout.new</code>
+        <code>checkout.total <mark class="comment"># => 6</mark></code>
+      </pre>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Tables</h2>
+
+      <p>
+        For showing tabular data, like the kind of devices used on GOV.UK in January 2014.
+      </p>
+
+      <table class="striped">
+        <tr><th>Device type</th><th>Percentage</th></tr>
+        <tr><td>Desktop</td><td>66%</td></tr>
+        <tr><td>Mobile</td><td>21%</td></tr>
+        <tr><td>Tablet</td><td>13%</td></tr>
+      </table>
+
+      <small>Data from Google Analytics.</small>
+    </div></section>
+
+    <section class="slide full-image" style="background-image: url(images/big-ben.jpg);"><div>
+      <p style="top: 1em; right: 1em; width: 14em;">
+        Images. Creative Commons, by <a href="https://secure.flickr.com/photos/ben124/7660306446">ben124 on Flickr</a>.
+      </p>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Video</h2>
+      <p>YouTube embedded video works pretty well.</p>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/o3cMgpdp5qg" frameborder="0" allowfullscreen></iframe>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>Notes on video support</h2>
+      <p>Fullscreen for YouTube embedded video works in Firefox, but not Chrome.</p>
+      <p>If you're not using YouTube, use the <code>&lt;video&gt;</code> tag. Watch out for browser/OS support.</p>
+    </div></section>
+
+    <section class="slide"><div>
+      <h2>PDFs!</h2>
+      <p>Need a PDF copy of your presentation?</p>
+      <p>Make sure you're using Chrome.</p>
+      <p>From the index page (ie not a single slide) choose:
+      <p><code>File > Print > Save as PDF</code></p>
+    </div></section>
+
+    <section class="slide outro"><div>
+      <p>Your name (@your_twitter_username)</p>
+      <p>Your job</p>
+      <p>Government Digital Service</p>
+    </div></section>
+
+    <!--
+
+    These last few commented out slides show you things that are possible technically
+    with this framework but which are frowned upon by Creative and Comms.
+
+    If you use them in a presentation, Russell will come for you.
+
+
+    <section class="slide"><div>
+      <h2>Lists</h2>
+
+      <p>
+        You can add in-slide navigation using the <code>next</code> class
+      </p>
+
+      <ul>
+        <li>Banana</li>
+        <li>Apple</li>
+        <li>Orange</li>
+      </ul>
+
+      <ol>
+        <li>One</li>
+        <li class="next">Two</li>
+        <li class="next">Three</li>
+      </ol>
+    </div></section>
+
+
+    <section class="slide"><div>
+      <h2>Text formatting</h2>
+      <p>
+        You can have <strong>bold</strong> and <em>italic</em> text.
+      </p>
+    </div></section>
+
+
+    -->
+
+    <script>
+      var footerText = {
+        left: 'Your name',
+        right: 'GDS'
+      };
+    </script>
+
+    <script src="scripts/gds.js"></script>
+    <script src="shower/shower.min.js"></script>
+
+  </body>
+
+</html>

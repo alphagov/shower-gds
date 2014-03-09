@@ -1,0 +1,393 @@
+// Based on Bright: https://github.com/shower/bright
+// which is released under the MIT License, as is this.
+
+@import 'reset';
+
+// Colours
+$cabinet-office-blue: rgb(0, 118, 192);
+
+$gds-presentation-red: rgb(221, 50, 45);
+$gds-presentation-orange: rgb(243, 121, 32);
+$gds-presentation-gold: rgb(180, 137, 45);
+$gds-presentation-yellow: rgb(255, 193, 14);
+$gds-presentation-lime-green: rgb(133, 154, 59);
+$gds-presentation-dark-green: rgb(0, 101, 46);
+$gds-presentation-teal: rgb(45, 161, 151);
+$gds-presentation-purple: rgb(46, 49, 145);
+$gds-presentation-blue: rgb(111, 112, 180);
+$gds-presentation-purple: rgb(144, 39, 142);
+
+$white: #fff;
+$red: #f00;
+
+// Slide size
+$width: 1024px;
+$height: 640px; // 640px for 16:10 or 768px for 4:3
+
+// Slide padding
+$top: 50px;
+$right: 90px;
+$left: 80px;
+
+// Breakpoint for desktop screen size
+$desktop: 1180px;
+
+// Gap between slides on the index screen
+$index-gap: 20px;
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 2;
+}
+
+a {
+  color: $cabinet-office-blue;
+}
+
+// List page metadata
+.caption {
+  display: none;
+  margin: 0 0 60px;
+  padding: 0 50px 0 0;
+  color: #333;
+
+  h1 {
+    font-size: 2em;
+  }
+}
+
+.slide {
+  -webkit-print-color-adjust: exact;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+
+  position: relative;
+  width: $width;
+  height: $height;
+  background-color: #e6e6e6;
+  color: #000;
+
+  &.intro, &.outro {
+    > div {
+      background-image: url(../images/cabinet-office-logo.png);
+      background-repeat: no-repeat;
+      background-position: 3.2em 3.2em;
+      background-size: 40%;
+      p {
+        font-size: 2em;
+        margin-bottom: 0;
+        line-height: 1.3;
+        &:first-child {
+          margin-top: 5em;
+        }
+      }
+      .footer {
+        display: none;
+      }
+    }
+  }
+
+  &.full-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    > div {
+      p {
+        background: $cabinet-office-blue;
+        color: $white;
+        padding: 0.4em;
+        position: absolute;
+        max-width: 50%;
+
+        a {
+          color: $white;
+        }
+      }
+
+      .footer {
+        display: none;
+      }
+    }
+  }
+
+  > div {
+    padding: $top $right 0 $left;
+    width: $width - $left - $right;
+    height: $height - $top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.6em;
+    line-height: 1.4;
+    margin: 0 0 0.8em 0;
+  }
+
+  b, strong {
+    font-weight: bold;
+  }
+
+  i, em {
+    font-style: italic;
+  }
+
+  // Tables
+  table {
+    margin: 0 0 1em 0;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 1;
+
+    th, td {
+      padding: 0.4em;
+      border: 1px solid #a1acb2;
+    }
+
+    th {
+      font-weight: bold;
+      text-align: left;
+      color: #000;
+      background: #dee0e2;
+    }
+
+    td {
+      background: #eaedef;
+    }
+
+    &.striped tr:nth-child(even) td {
+      background: $white;
+    }
+  }
+
+  // Lists
+  ol, ul {
+    margin: 0 0 0.8em;
+    counter-reset: list;
+
+    li {
+      text-indent: -2em;
+      font-size: 1.2em;
+      line-height: 1.4;
+
+      &:before {
+        display: inline-block;
+        width: 2em;
+        text-align: right;
+      }
+    }
+  }
+
+  ul > li:before {
+    content: "\2022\00A0\00A0"; // bullet, 2x non-breaking space
+  }
+
+  ol > li:before {
+    counter-increment: list;
+    content: counter(list)".\00A0\00A0"; // 2x non-breaking space
+  }
+
+  // Code
+  code {
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, .1);
+    font-family: "Menlo", monospace;
+  }
+
+  // Code blocks
+  pre {
+    margin: 0 0 1em;
+    padding: 3px 0 0;
+    counter-reset: code;
+    white-space: normal;
+    code {
+      display: block;
+      padding: 0;
+      background: none;
+      white-space: pre;
+      line-height: 1.8;
+      &:before {
+        position: absolute;
+        margin-left: -2em;
+        color: #333;
+        counter-increment: code;
+        content: counter(code, decimal-leading-zero);
+      }
+      &:only-child:before {
+        content: '';
+      }
+    }
+    mark {
+      background: none;
+      color: $red;
+      font-style: normal;
+      &.important {
+        padding: 3px 7px 0;
+        background: $gds-presentation-yellow;
+        color: #000;
+      }
+      &.comment {
+        color: #999;
+      }
+    }
+  }
+
+  // Quotes
+  blockquote {
+    border-left: 4px solid #666;
+    padding-left: 0.4em;
+    & + figcaption {
+      margin: -1em 0 1em;
+      &:before {
+        content: "\2015\00A0" // horizontal bar, non-breaking space
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 2%;
+    font-size: 1.7em;
+    line-height: 1.5;
+
+    background: $cabinet-office-blue;
+    color: $white;
+
+    .right {
+      float: right;
+    }
+  }
+}
+
+@media screen {
+  .list {
+    position: absolute;
+    clip: rect(0, auto, auto, 0);
+    padding: 50px 0 50px 50px;
+    background-color: #f6f6f6;
+    text-align: center;
+
+    .caption {
+      // Display the header metadata on the list page
+      display: block;
+    }
+
+    .slide {
+      position: relative;
+      top: $height/2 - $index-gap;
+      display: inline-block;
+      margin: ($index-gap - $height/2) ($index-gap - $width/2) 0 0;
+      text-align: left;
+      -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transform: scale(.5);
+      -ms-transform: scale(.5);
+      transform: scale(.5);
+
+      @media (max-width: $desktop) {
+        top: $height/2 + $height/4 - $index-gap;
+        margin: ($index-gap - ($height/2 + $height/4)) ($index-gap - ($width/2 + $width/4)) 0 0;
+        -webkit-transform: scale(.25);
+        -ms-transform: scale(.25);
+        transform: scale(.25);
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: $width / 2;
+        height: $height / 2;
+        -webkit-box-shadow: 0 0 0 1px #333;
+        box-shadow: 0 0 0 1px #333;
+        content: '';
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(2);
+
+
+        @media (max-width: $desktop) {
+          width: $width / 4;
+          height: $height / 4;
+          -webkit-transform: scale(4);
+          -ms-transform: scale(4);
+          transform: scale(4);
+        }
+      }
+
+      &:hover:before {
+        -webkit-box-shadow: 0 0 0 1px #333, 0 0 0 0.2em $gds-presentation-yellow;
+        box-shadow: 0 0 0 1px #333, 0 0 0 0.2em $gds-presentation-yellow;
+      }
+
+      &:target {
+        &:before {
+          -webkit-box-shadow: 0 0 0 1px #333, 0 0 0 0.2em $gds-presentation-yellow;
+          box-shadow: 0 0 0 1px #333, 0 0 0 0.2em $gds-presentation-yellow;
+        }
+      }
+
+      > div:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        content: '';
+      }
+    }
+  }
+
+  .full {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    margin: (-$height/2) 0 0 (-$width/2);
+    width: $width;
+    height: $height;
+    background: #000;
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: 150%;
+
+      &:target {
+        margin: 0;
+      }
+
+      .next {
+        visibility: hidden;
+
+        &.active {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+@page {
+  margin: 0;
+  size: $width $height;
+}
