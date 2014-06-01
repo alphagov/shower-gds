@@ -27,7 +27,7 @@ $height: 640px; // 640px for 16:10 or 768px for 4:3
 // Slide padding
 $top: 50px;
 $right: 90px;
-$left: 80px;
+$left: 50px;
 
 // Breakpoint for desktop screen size
 $desktop: 1180px;
@@ -73,8 +73,8 @@ a {
     > div {
       background-image: url(../images/cabinet-office-logo.png);
       background-repeat: no-repeat;
-      background-position: 3.2em 3.2em;
-      background-size: 40%;
+      background-position: 1.8em 3.2em;
+      background-size: 68%;
       p {
         font-size: 2em;
         margin-bottom: 0;
@@ -95,11 +95,11 @@ a {
 
     > div {
       p {
-        background: $cabinet-office-blue;
         color: $white;
+        font-weight: bold;
         padding: 0.4em;
         position: absolute;
-        max-width: 50%;
+        text-shadow: 3px 3px 0px #000;
 
         a {
           color: $white;
@@ -205,10 +205,15 @@ a {
 
   // Code blocks
   pre {
-    margin: 0 0 1em;
+    margin: 0 0 1em 0;
     padding: 3px 0 0;
     counter-reset: code;
     white-space: normal;
+
+    &.line-numbers {
+      margin-left: 2em;
+    }
+
     code {
       display: block;
       padding: 0;
@@ -218,7 +223,7 @@ a {
       &:before {
         position: absolute;
         margin-left: -2em;
-        color: #333;
+        color: #444;
         counter-increment: code;
         content: counter(code, decimal-leading-zero);
       }
@@ -258,8 +263,8 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0 2%;
-    font-size: 1.7em;
+    padding: 1% 6%;
+    font-size: 1.4em;
     line-height: 1.5;
 
     background: $cabinet-office-blue;
