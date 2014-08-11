@@ -2,7 +2,7 @@ require 'sass'
 require 'webrick'
 
 task :default do
-  Dir.glob('styles/**/*.scss') do |sass_file|
+  Dir.glob('styles/**/[^_]*.scss') do |sass_file|
     Sass::compile_file(sass_file, sass_file.sub(/\..*$/,'.css'))
   end
 
