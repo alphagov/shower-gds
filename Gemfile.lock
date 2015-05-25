@@ -10,5 +10,5 @@ PLATFORMS
 
 DEPENDENCIES
   rake
-  sass (= 3.2.15)
+  sass (~> 3.2)
   webrick
